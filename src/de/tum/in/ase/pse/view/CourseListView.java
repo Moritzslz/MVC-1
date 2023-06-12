@@ -37,6 +37,13 @@ public class CourseListView extends Stage implements Observer {
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
 	public void addCourse(Course nCourse) {
+		for (Course course : courses) {
+			if (course.getId().equals(nCourse.getId()) || course.getName().equals(course.getName())) {
+				course.setId(nCourse.getId());
+				course.setName(nCourse.getName());
+				return;
+			}
+		}
 		courses.add(nCourse);
 		nCourse.addObserver(this);
 	}
@@ -50,7 +57,6 @@ public class CourseListView extends Stage implements Observer {
 	// HINT: Creating a course is equivalent to selecting a course here
 	private void createCourse() {
 		Course nCourse = new Course("Placeholder", "Placeholder");
-		CourseDetailView courseDetailView = new CourseDetailView(controller, nCourse);
 		controller.selectCourse(nCourse);
 	}
 
