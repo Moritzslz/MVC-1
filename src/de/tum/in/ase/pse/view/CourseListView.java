@@ -39,7 +39,7 @@ public class CourseListView extends Stage implements Observer {
 	public void addCourse(Course nCourse) {
 		String id = nCourse.getId();
 		String name = nCourse.getName();
-		if (id.equals(null) || name.equals(null))
+		if (id == null || name == null)
 			return;
 		for (Course course : courses) {
 			if (course.getId().equals(id) || course.getName().equals(name)) {
@@ -47,8 +47,8 @@ public class CourseListView extends Stage implements Observer {
 				courses.remove(course);
 			}
 		}
-		nCourse.addObserver(this);
 		courses.add(nCourse);
+		nCourse.addObserver(this);
 		controller.saveCourse(nCourse);
 	}
 
