@@ -49,7 +49,7 @@ public class CourseDetailView extends Stage implements Observer {
 		String[] courseString = course.toString().split(" ");
 		idTextField.setText(courseString[0]);
 		nameTextField.setText(courseString[1]);
-		setTitle(courseString[1]);
+		setTitle(courseString.toString());
 		course.notifyObservers();
 	}
 
