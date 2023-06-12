@@ -39,16 +39,17 @@ public class CourseListView extends Stage implements Observer {
 	public void addCourse(Course nCourse) {
 		if (nCourse.getName() == null || nCourse.getId() == null) {
 			return;
-		}
-		for (Course course : courses) {
-			if (course.getId().equals(nCourse.getId()) || course.getName().equals(nCourse.getName())) {
-				course.setId(nCourse.getId());
-				course.setName(nCourse.getName());
-				return;
+		} else {
+			for (Course course : courses) {
+				if (course.getId().equals(nCourse.getId()) || course.getName().equals(nCourse.getName())) {
+					course.setId(nCourse.getId());
+					course.setName(nCourse.getName());
+					return;
+				}
 			}
+			courses.add(nCourse);
+			nCourse.addObserver(this);
 		}
-		courses.add(nCourse);
-		nCourse.addObserver(this);
 	}
 
 	// TODO: Implement selectCourse(). This method should send the controller the information to open up a new detail view
