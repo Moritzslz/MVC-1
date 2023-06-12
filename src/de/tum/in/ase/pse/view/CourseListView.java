@@ -46,6 +46,7 @@ public class CourseListView extends Stage implements Observer {
 				return;
 			}
 		}
+		nCourse.addObserver(this);
 		courses.add(nCourse);
 		controller.saveCourse(nCourse);
 	}
