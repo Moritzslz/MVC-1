@@ -4,6 +4,7 @@ import de.tum.in.ase.pse.model.Course;
 import de.tum.in.ase.pse.model.Observable;
 import de.tum.in.ase.pse.view.CourseDetailView;
 import de.tum.in.ase.pse.view.CourseListView;
+import de.tum.in.ase.pse.view.Observer;
 
 public class Controller {
 
@@ -14,7 +15,9 @@ public class Controller {
 	// TODO: Implement saveCourse(). This method should add the course to the list view and notify the observers
 	public void saveCourse(Course course) {
 		courseListView.addCourse(course);
-		courseListView.notifyAll();
+		courseDetailView = new CourseDetailView(this, course);
+		courseListView.update();
+		courseDetailView.update();
 	}
 
 	// TODO: Implement selectCourse(). This method should initialize courseDetailView and display it
