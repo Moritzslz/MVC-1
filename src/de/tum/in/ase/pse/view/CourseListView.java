@@ -56,7 +56,7 @@ public class CourseListView extends Stage implements Observer {
 		if (!courses.contains(nCourse)) {
 			courses.add(nCourse);
 			nCourse.addObserver(this);
-			controller.saveCourse(nCourse);
+			//controller.saveCourse(nCourse);
 			//nCourse.notifyObservers();
 			//update();
 		}
