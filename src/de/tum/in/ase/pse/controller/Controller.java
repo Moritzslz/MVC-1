@@ -1,10 +1,9 @@
 package de.tum.in.ase.pse.controller;
 
 import de.tum.in.ase.pse.model.Course;
-import de.tum.in.ase.pse.model.Observable;
 import de.tum.in.ase.pse.view.CourseDetailView;
 import de.tum.in.ase.pse.view.CourseListView;
-import de.tum.in.ase.pse.view.Observer;
+
 
 public class Controller {
 
