@@ -37,10 +37,9 @@ public class CourseListView extends Stage implements Observer {
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
 	public void addCourse(Course nCourse) {
-		if (nCourse.getId().equals(null) || nCourse.getName().equals(null))
-			return;
 		String id = nCourse.getId();
-		if (id == null)
+		String name = nCourse.getName();
+		if (id == null || name == null)
 			return;
 		for (Course course : courses) {
 			if (course.getId().equals(id)) {
