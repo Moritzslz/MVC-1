@@ -30,7 +30,7 @@ public class CourseListView extends Stage implements Observer {
 		generateUserInterface();
 		controller.setCourseListView(this);
 		for (Course course : courses) {
-			controller.saveCourse(course);
+			course.addObserver(this);
 		}
 	}
 
