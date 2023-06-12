@@ -37,19 +37,8 @@ public class CourseListView extends Stage implements Observer {
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
 	public void addCourse(Course nCourse) {
-		String id = nCourse.getId();
-		String name = nCourse.getName();
-		if (id == null || name == null)
-			return;
-		for (Course course : courses) {
-			if (course.getId().equals(id) || course.getName().equals(name)) {
-				//Overwrite
-				courses.remove(course);
-			}
-		}
 		courses.add(nCourse);
 		nCourse.addObserver(this);
-		controller.saveCourse(nCourse);
 	}
 
 	// TODO: Implement selectCourse(). This method should send the controller the information to open up a new detail view
