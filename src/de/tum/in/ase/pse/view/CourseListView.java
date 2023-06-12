@@ -29,11 +29,16 @@ public class CourseListView extends Stage implements Observer {
 		this.controller = controller;
 		generateUserInterface();
 		controller.setCourseListView(this);
+		for (Course course : courses) {
+			controller.saveCourse(course);
+		}
 	}
 
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
 	public void addCourse(Course nCourse) {
+		if (nCourse.getId().equals(null) || nCourse.getName().equals(null))
+			return;
 		String id = nCourse.getId();
 		if (id == null)
 			return;
