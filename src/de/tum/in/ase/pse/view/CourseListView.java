@@ -43,7 +43,8 @@ public class CourseListView extends Stage implements Observer {
 			return;
 		for (Course course : courses) {
 			if (course.getId().equals(id) || course.getName().equals(name)) {
-				return;
+				//Overwrite
+				courses.remove(course);
 			}
 		}
 		nCourse.addObserver(this);
