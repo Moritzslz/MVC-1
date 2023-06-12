@@ -53,12 +53,15 @@ public class CourseListView extends Stage implements Observer {
 		}
 
 		 */
+		if (nCourse.getName() == null || nCourse.getId() == null) {
+			return;
+		}
 		if (!courses.contains(nCourse)) {
 			courses.add(nCourse);
 			nCourse.addObserver(this);
 			controller.saveCourse(nCourse);
 			//nCourse.notifyObservers();
-			update();
+			//update();
 		}
 	}
 
