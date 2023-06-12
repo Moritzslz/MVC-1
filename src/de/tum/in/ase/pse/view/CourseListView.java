@@ -37,6 +37,7 @@ public class CourseListView extends Stage implements Observer {
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
 	public void addCourse(Course nCourse) {
+		/*
 		if (nCourse.getName() == null || nCourse.getId() == null) {
 			return;
 		} else {
@@ -49,6 +50,13 @@ public class CourseListView extends Stage implements Observer {
 			}
 			courses.add(nCourse);
 			nCourse.addObserver(this);
+		}
+
+		 */
+		if (!courses.contains(nCourse)) {
+			courses.add(nCourse);
+			controller.saveCourse(nCourse);
+			update();
 		}
 	}
 
