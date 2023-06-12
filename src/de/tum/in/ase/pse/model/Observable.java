@@ -11,7 +11,9 @@ public abstract class Observable {
 
 	//TODO: Implement notifyObservers(). This method should notify all observers currently observing the Observable
 	public void notifyObservers() {
-
+		for (Observer observer : observers) {
+			observer.update();
+		}
 	}
 
 	public List<Observer> getObservers() {

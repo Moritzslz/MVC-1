@@ -29,6 +29,7 @@ public class CourseDetailView extends Stage implements Observer {
 		this.course = course;
 		this.idTextField = new TextField(course.getId());
 		this.nameTextField = new TextField(course.getName());
+		this.controller = controller;
 
 		generateUserInterface();
 	}
@@ -36,14 +37,17 @@ public class CourseDetailView extends Stage implements Observer {
 	// TODO: Implement save(). This method should update the course with the information entered by the user and save it using the controller
 	// HINT: Use the attributes idTextField and nameTextField to retrieve the data
 	private void save() {
-
+		course.setName(nameTextField.getText());
+		course.setId(idTextField.getText());
+		controller.saveCourse(course);
 	}
 
 	// TODO: Implement update(). This method should update the view's text fields and title with the current values of the course
 	// HINT: JavaFX provides a method setTitle(String)
 	@Override
 	public void update() {
-
+		idTextField.setText(course.getId());
+		nameTextField.setText(course.getName());
 	}
 
 	private void generateUserInterface() {

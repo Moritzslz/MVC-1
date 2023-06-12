@@ -26,21 +26,33 @@ public class CourseListView extends Stage implements Observer {
 	public CourseListView(Controller controller, List<Course> courseList) {
 		this.courses = FXCollections.observableArrayList(courseList);
 		this.courseListView = new ListView<>(courses);
+		this.controller = controller;
 		generateUserInterface();
 		controller.setCourseListView(this);
 	}
 
 	// TODO: Implement addCourse(). Make sure to check for duplicates and that the list view observes the added course
 
+	public void addCourse(Course nCourse) {
+		String id = nCourse.getId();
+		for (Course course : courses) {
+			if (course.getId().equals(id)) {
+				return;
+			}
+		}
+		courses.add(nCourse);
+		controller.saveCourse(nCourse);
+	}
+
 	// TODO: Implement selectCourse(). This method should send the controller the information to open up a new detail view
 	private void selectCourse(Course course) {
-
+		controller.selectCourse(course);
 	}
 
 	// TODO: Implement createCourse(). This method should inform the controller about the creation process of a new course
 	// HINT: Creating a course is equivalent to selecting a course here
 	private void createCourse() {
-
+		;
 	}
 
 	@Override
