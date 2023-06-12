@@ -31,7 +31,6 @@ public class CourseDetailView extends Stage implements Observer {
 		this.nameTextField = new TextField(course.getName());
 		this.controller = controller;
 		generateUserInterface();
-		controller.saveCourse(course);
 		course.addObserver(this);
 	}
 
@@ -39,7 +38,7 @@ public class CourseDetailView extends Stage implements Observer {
 	// HINT: Use the attributes idTextField and nameTextField to retrieve the data
 	private void save() {
 		course.setName(nameTextField.getText());
-		course.setId(idTextField.getText());
+		course.setId(idTextField.getId());
 		controller.saveCourse(course);
 	}
 
@@ -50,6 +49,7 @@ public class CourseDetailView extends Stage implements Observer {
 		idTextField.setText(course.getId());
 		nameTextField.setText(course.getName());
 		setTitle(nameTextField.getText());
+		show();
 	}
 
 	private void generateUserInterface() {
