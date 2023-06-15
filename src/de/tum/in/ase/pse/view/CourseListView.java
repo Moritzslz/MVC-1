@@ -51,7 +51,6 @@ public class CourseListView extends Stage implements Observer {
 			courses.add(nCourse);
 			nCourse.addObserver(this);
 		}
-
 		 */
 		if (!courses.contains(nCourse)) {
 			courses.add(nCourse);
